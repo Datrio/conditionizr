@@ -150,8 +150,11 @@
 		
 	}
 	
-	if (window.devicePixelRatio >= 2) {
-	
+	if (window.devicePixelRatio >= 2 || (
+		window.matchMedia('(min-resolution: 2dppx)').matches ||
+		window.matchMedia("(-moz-device-pixel-ratio: 2)").matches ||
+		window.matchMedia("(-o-device-pixel-ratio: 2/1)").matches
+	)) {
 		var browserSettings = settings.retina;
 		var theBrowser = 'retina';
 		
